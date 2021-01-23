@@ -1,30 +1,39 @@
 #include <stdio.h>
 
+int isprime(int n)
+{
+    int flag = 1,i;
+    if(n > 2)
+    {
+        for(i = 2; i<=n/2; i++)
+        if(n%i == 0)
+        {
+            flag = 0;
+            break;
+        }
+    }
+    return flag;
+}
+
 int main()
 {
-    int isprime = 1,i=0,n,s,t=2,j;
+    int n,s,i,t,a[10000];
+    s = 0,t = 0, i =2;
     scanf("%d", &n);
-    while(n >s)
+    do
     {
-        isprime = 1;
-        for(j = 2; j<=t/2; j++)
+        if(isprime(i))
         {
-            if(t%j == 0)
-            {
-                isprime = 0;
-                break;
-            }
+            s+= i;
+            a[t++] = i;
         }
-        if(isprime)
-        {
-            if(s+t>n)
-            break;
-            printf("%d\n", t);
-            s+=t;
-            i++;
-        }
-        t++;
-    }
-    printf("%d",i);
+        if(s >n)
+        break;
+        i++; 
+    } while (1);
+    for(i = 0; i< t-1; i++)
+    printf("%d\n", a[i]);
+    printf("%d", t-1);
     return 0;
+    
 }
