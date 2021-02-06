@@ -9,7 +9,7 @@ int main()
     char p[100];
     int s1[26]={1,4,9,16,25,36,49,64,81,0,11,44,69,96,25,56,89,24,61,0,1,4,1,1,4,9};
     int s2[6];
-    int i,j,t=0,min,temp;
+    long int i,j,t=0,min,temp;
     for(i = 0; i < N; i++)
     {
         scanf("%s", p);
@@ -34,19 +34,17 @@ int main()
             }
         }
     }
-    min = 0;
     if(t)
     {
-        i = 0,j = 1,t--;
-        min = s2[i++];
-        while(t)
-        {
-            j*=100;
-            min += s2[i++] *j;
-            t--;
-        }
+        if(s2[t-1] >= 10)
+        printf("%02d",s2[t-1]);
+        else
+        printf("%d", s2[t-1]);
+        for( i=t-2 ; i>=0; i--)
+        printf("%02d",s2[i]);
     }
-    printf("%d", min);
+    else 
+    printf("0");
     return 0;
 
 }
