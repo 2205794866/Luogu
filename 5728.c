@@ -11,13 +11,12 @@ int main()
     }
     for(i = 0; i<n; i++)
     {
-        for(j = 0; j<n;j++)
+        for(j = 0; j<i;j++)
         {
-            if(j != i)
             if(abs(a[i][0] - a[j][0]) <=5 && abs(a[i][1] - a[j][1]) <=5 && abs(a[i][2] - a[j][2]) <=5 && abs(a[i][3] - a[j][3]) <=10 )
             s++;
         }
     }
-    printf ("%d", s/2);
+    printf ("%d", s);
     return 0;
 }
